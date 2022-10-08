@@ -7,7 +7,7 @@ export const NavLeft = () => {
   return (
     <div className="t.flex t.flex-row t.items-center">
       {/* logo */}
-      <div className="t.cursor-pointer t.mr-12">
+      <div className="t.cursor-pointer t.mr-20">
         <InternalLink href={homePath}>
           <Logo />
         </InternalLink>

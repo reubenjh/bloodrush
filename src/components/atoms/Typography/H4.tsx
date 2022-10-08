@@ -6,9 +6,7 @@ export const H4 = ({
   className?: string;
 }) => {
   return (
-    <h4
-      className={`t.text-xl t.font-title t.font-semibold t.mb-4 ${className}`}
-    >
+    <h4 className={`t.text-xl t.font-semibold t.mb-4 ${className}`}>
       {children}
     </h4>
   );

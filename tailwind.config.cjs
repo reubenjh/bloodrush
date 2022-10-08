@@ -20,7 +20,7 @@ module.exports = {
 
         // defaults
         background: '#eef0f2',
-        'text-color': '#212529',
+        'text-color': 'black',
         'nav-color': 'rgba(0,0,0,0.55)',
         'footer-color': '#dee2e6',
         'line-color': '#dee2e6',
@@ -38,7 +38,7 @@ module.exports = {
         xs: ['0.625rem'],
       },
       fontFamily: {
-        title: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
         logo: ['Noto Emoji'],
       },
     },

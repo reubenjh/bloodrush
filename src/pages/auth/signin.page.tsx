@@ -15,15 +15,15 @@ const Signin: NextPage = () => {
   return (
     <div className="t.flex t.flex-col t.justify-center t.h-screen t.items-center">
       <div className="t.container t.mx-auto t.py-8 t.px-4 t.flex t.flex-col t.justify-center t.items-center">
-        <Logo className="t.pb-2 t.border-b" />
+        <Logo className="t.mb-6 t.text-center" />
 
         {providers && (
           <>
-            <P className="t.pt-4">Providers</P>
             <div className="t.h-full t.flex t.flex-col t.items-center">
               {Object.values(providers).map((provider) => (
                 <div key={provider.name}>
                   <Button
+                    className="t.min-w-[180px] t.mb-2"
                     onClick={() =>
                       signIn(provider.id, {
                         callbackUrl: callbackUrl as string,

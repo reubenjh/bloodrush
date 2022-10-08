@@ -6,8 +6,6 @@ export const H2 = ({
   className?: string;
 }) => {
   return (
-    <h2 className={`t.text-3xl t.font-title t.font-bold t.mb-6 ${className}`}>
-      {children}
-    </h2>
+    <h2 className={`t.text-3xl t.font-bold t.mb-6 ${className}`}>{children}</h2>
   );
 };

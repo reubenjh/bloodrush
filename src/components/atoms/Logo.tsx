@@ -11,10 +11,8 @@ export const Logo = ({ className = '' }: { className?: string }) => {
           : 't.text-black dark:t.text-white'
       } ${className}`}
     >
-      <span className="t.font-logo t.text-3xl t.font-bold">🩸</span>
-      <span className="t.font-title t.relative t.top-[-2px] t.text-2xl t.pr-3">
-        Bloodrush
-      </span>
+      <span className="t.font-logo t.text-lg t.font-bold">🩸</span>
+      <span className="t.pr-3">Bloodrush</span>
     </div>
   );
 };
