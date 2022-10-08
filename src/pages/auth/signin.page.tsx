@@ -9,6 +9,7 @@ import { trpc } from 'src/utils/trpc';
 
 const Signin: NextPage = () => {
   const { data: providers } = trpc.auth.getProviders.useQuery();
+  console.log({ providers });
   const {
     query: { callbackUrl, error },
   } = useRouter();

@@ -6,7 +6,9 @@ export const authRouter = t.router({
     return ctx.session;
   }),
   getProviders: t.procedure.query(() => {
-    return getProviders();
+    const providers = getProviders();
+    console.log({ providers });
+    return providers;
   }),
   getSecretMessage: authedProcedure.query(() => {
     return 'You are logged in and can see this secret message!';
