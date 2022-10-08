@@ -23,7 +23,7 @@ const MyDocument: DocumentType = () => {
           rel="stylesheet"
         />
       </Head>
-      <body className="t.text-base t.bg-dark-background dark:t.bg-dark-background t.text-text-color dark:t.text-dark-text-color">
+      <body className="t.text-base t.bg-background dark:t.bg-dark-background t.text-text-color dark:t.text-dark-text-color">
         <Main />
         <NextScript />
       </body>

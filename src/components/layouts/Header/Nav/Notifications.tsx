@@ -1,54 +1,53 @@
-// import {
-//   KnockFeedProvider,
-//   NotificationFeedPopover,
-//   UnseenBadge,
-// } from '@knocklabs/react-notification-feed';
+import {
+  KnockFeedProvider,
+  NotificationFeedPopover,
+  UnseenBadge,
+} from '@knocklabs/react-notification-feed';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { Tooltip } from 'src/components/atoms/Tooltip';
 import { env } from 'src/env/client.mjs';
-// import { useTheme } from 'src/providers/ThemeProvider';
-// import { useUser } from 'src/providers/UserProvider';
-import { homePath } from 'src/utils/paths';
+import { useTheme } from 'src/providers/ThemeProvider';
+import { deckPath, homePath } from 'src/utils/paths';
 
 export const Notifications = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const notifButtonRef = useRef(null);
-  // const { user } = useUser();
+  const { data: sessionData } = useSession();
   const router = useRouter();
 
-  // const { theme, isDark } = useTheme();
-  // if (!theme || !user) return null;
+  const { theme, isDark } = useTheme();
+  if (!theme || !sessionData?.user) return null;
 
   return (
-    // <KnockFeedProvider
-    //   colorMode={isDark ? 'dark' : 'light'}
-    //   apiKey={env.NEXT_PUBLIC_KNOCK_PUBLIC_KEY}
-    //   userToken={user.knock_jwt}
-    //   feedId={'f090d8c8-6818-4e3d-b73d-4e7d9abfe2da'}
-    //   userId={user!.id.toString()}
-    // >
-    <span ref={notifButtonRef}>
-      <Tooltip message="Notifications">
-        <span className="t.px-1">
-          <IoMdNotificationsOutline
-            onClick={(e: any) => setIsVisible(!isVisible)}
-            size={20}
-            color={
-              // isDark || router.pathname === homePath
-              //   ? 'white'
-              //   : 'rgba(0,0,0,0.55)'
-              'white'
-            }
-          />
-        </span>
+    <KnockFeedProvider
+      colorMode={isDark ? 'dark' : 'light'}
+      apiKey={env.NEXT_PUBLIC_KNOCK_PUBLIC_KEY}
+      userToken={'todo user.token'}
+      feedId={'todo'}
+      userId={sessionData.user.id.toString()}
+    >
+      <span ref={notifButtonRef}>
+        <Tooltip message="Notifications">
+          <span className="t.px-1">
+            <IoMdNotificationsOutline
+              onClick={(e: any) => setIsVisible(!isVisible)}
+              size={20}
+              color={
+                isDark || router.pathname === homePath
+                  ? 'white'
+                  : 'rgba(0,0,0,0.55)'
+              }
+            />
+          </span>
 
-        {/* <UnseenBadge badgeCountType="unread" /> */}
-      </Tooltip>
+          <UnseenBadge badgeCountType="unread" />
+        </Tooltip>
 
-      {/* <NotificationFeedPopover
+        <NotificationFeedPopover
           buttonRef={notifButtonRef}
           isVisible={isVisible}
           onClose={() => {
@@ -56,13 +55,13 @@ export const Notifications = () => {
           }}
           onNotificationClick={(item) => {
             if (!!item.data?.deck_id) {
-              router.push(`/decks/${item.data.deck_id}?tab=comments`);
+              router.push(deckPath(item.data.deck_id));
             }
             setIsVisible(false);
           }}
           closeOnClickOutside={true}
-        /> */}
-    </span>
-    // </KnockFeedProvider>
+        />
+      </span>
+    </KnockFeedProvider>
   );
 };

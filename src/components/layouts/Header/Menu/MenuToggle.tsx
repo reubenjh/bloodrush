@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { BiMenu } from 'react-icons/bi';
 import { IoCloseOutline } from 'react-icons/io5';
-// import { useTheme } from 'src/providers/ThemeProvider';
+import { useTheme } from 'src/providers/ThemeProvider';
 import { homePath } from 'src/utils/paths';
 import { Menu } from './Menu';
 
@@ -14,7 +14,7 @@ export const MenuToggle = ({
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }) => {
-  // const { theme, isDark } = useTheme();
+  const { theme, isDark } = useTheme();
   const { pathname } = useRouter();
   const [parent] = useAutoAnimate({ duration: 150 });
 
@@ -22,7 +22,7 @@ export const MenuToggle = ({
     return isOpen ? IoCloseOutline : BiMenu;
   }, [isOpen]);
 
-  // if (!theme) return null;
+  if (!theme) return null;
 
   return (
     <div className="t.px-1 t.cursor-pointer t.relative" ref={parent as any}>
@@ -39,10 +39,9 @@ export const MenuToggle = ({
         />
         <span
           className={`t.text-sm ${
-            // isDark || pathname === homePath
-            //   ? 't.text-white'
-            //   : 't.text-nav-color'
-            'white'
+            isDark || pathname === homePath
+              ? 't.text-white'
+              : 't.text-nav-color'
           }`}
         >
           Menu

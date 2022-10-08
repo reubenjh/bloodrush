@@ -3,7 +3,7 @@ import bg from 'public/images/old.webp';
 
 export const SplashImage = () => (
   <>
-    {/* <Image
+    <Image
       className="t.-z-[1] t.absolute t.w-full t.h-[calc(100%-80px)] t.max-h-[788px] t.object-cover t.object-[center_30%] t.gradient-mask-b-80"
       alt=""
       height={804}
@@ -20,6 +20,6 @@ export const SplashImage = () => (
         rgba(0, 0, 0, 0.8) 100%,
         rgba(0, 0, 0, 0)`,
       }}
-    ></div> */}
+    ></div>
   </>
 );

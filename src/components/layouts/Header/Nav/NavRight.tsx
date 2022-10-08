@@ -16,7 +16,6 @@ import { Notifications } from './Notifications';
 export const NavRight = () => {
   const router = useRouter();
   const { data: sessionData } = useSession();
-  console.log({ user: sessionData?.user });
 
   // const { openModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,7 +1,9 @@
 // src/pages/_app.tsx
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppType } from 'next/app';
+import { ThemeProvider } from 'src/providers/ThemeProvider';
 import '../styles/globals.css';
 import { trpc } from '../utils/trpc';
 
@@ -10,9 +12,17 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <NextThemeProvider
+      defaultTheme="system"
+      attribute="class"
+      themes={['t.dark', 't.light']}
+    >
+      <ThemeProvider>
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
+      </ThemeProvider>
+    </NextThemeProvider>
   );
 };
 
