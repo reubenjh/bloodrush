@@ -1,6 +1,6 @@
 // src/server/router/index.ts
 import { t } from '../trpc';
-import { userRouter } from './user/userRouter';
+import { userRouter } from './user';
 
 export const appRouter = t.router({
   user: userRouter,

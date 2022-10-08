@@ -27,19 +27,16 @@ const UserProvider = ({
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | undefined>();
 
-  // trpc.user.get.useQuery(
-  //   { remote_id: remote_id },
-  //   {
-  //     enabled: !!remote_id,
-  //     onSuccess(data) {
-  //       setUser(data!);
-  //       setIsLoading(false);
-  //     },
-  //   },
-  // );
-
-  const { data } = trpc.user.get.useQuery({ remote_id: '' });
-  console.log({ data });
+  trpc.user.get.useQuery(
+    { remote_id: remote_id },
+    {
+      enabled: !!remote_id,
+      onSuccess(data) {
+        setUser(data);
+        setIsLoading(false);
+      },
+    },
+  );
 
   // watches auth provider context data and clears data accordingly
   // note remote_id will be detected and used to fetch user data automagically by trpc
