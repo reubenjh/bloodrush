@@ -23,7 +23,7 @@ const Signin: NextPage = () => {
       <div className="t.container t.mx-auto t.py-8 t.px-4 t.flex t.flex-col t.justify-center t.items-center">
         {error ||
           (providerError && (
-            <div className="t.p-6 t.mb-4 t.bg-blue t.rounded-lg t.max-w-sm">
+            <div className="t.p-6 t.mb-4 t.bg-blue t.text-white t.rounded-lg t.max-w-sm">
               <div>Uh oh. Something went wrong.</div>
 
               {error && (
