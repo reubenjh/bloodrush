@@ -26,8 +26,6 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
-      authorization: { params: { scope: 'identify, email' } },
-      // accessTokenUrl: 'https://discord.com/api/oauth2/token',
     }),
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
