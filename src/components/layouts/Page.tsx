@@ -1,6 +1,6 @@
 import Head from 'next/head';
+import { Header } from 'src/components/layouts/Header';
 
-// import { Header } from 'src/components/layouts/Header';
 // import { Footer } from './Footer';
 // import { Loader } from './Loader';
 // import { Modal } from './Modal';
@@ -34,7 +34,7 @@ export const Page = ({
       </Head>
       {/* content */}
       <main>
-        {/* <Header /> */}
+        <Header />
         {/* <Loader> */}
         {hero && hero}
         <div className="t.flex t.flex-col t.justify-between t.min-h-[calc(100vh-4.375rem)]">

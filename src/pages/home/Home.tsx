@@ -9,7 +9,7 @@ const Home: NextPage = () => {
     <>
       <SplashImage />
       <Page>
-        <div className="t.mt-[44vh] t.mb-28">
+        <div className="t.mt-[42vh] t.mb-28">
           <div className="t.text-center t.text-white t.mb-4">
             <H1 className="!t.mb-2">Bloodrush.</H1>
             <H3>Build decks. Tear your friends limb from limb.</H3>

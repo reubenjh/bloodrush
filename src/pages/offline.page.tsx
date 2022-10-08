@@ -2,8 +2,8 @@
 import type { NextPage } from 'next';
 import Image from 'next/future/image';
 import { H1 } from 'src/components/atoms/Typography/H1';
-// import bg from 'public/images/dream.webp';
 
+// import bg from 'public/images/dream.webp';
 
 export const Offline: NextPage = () => {
   return (
