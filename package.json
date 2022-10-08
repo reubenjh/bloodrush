@@ -7,7 +7,9 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@prisma/client": "^4.4.0",
@@ -23,6 +25,7 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
@@ -32,6 +35,8 @@
     "eslint": "8.22.0",
     "eslint-config-next": "12.3.1",
     "postcss": "^8.4.14",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.5.0",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "prisma": "^4.4.0",
@@ -40,5 +45,20 @@
   },
   "ct3aMetadata": {
     "initVersion": "6.1.0"
-  }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "trailingComma": "all",
+    "endOfLine": "auto",
+    "singleQuote": true,
+    "importOrder": [
+      "^src/(.*)$",
+      "^[./]"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,css,scss,md}": "prettier --write"
+  },
+  "author": "Reuben Harcourt | @reubenjh (https://github.com/reubenjh)"
 }
