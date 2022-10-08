@@ -22,6 +22,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "1.9.1",
+    "tailwind-gradient-mask-image": "^1.0.0",
+    "tailwindcss-animate": "^1.0.5",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "zod": "^3.18.0"
   },
   "devDependencies": {
