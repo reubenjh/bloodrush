@@ -10,11 +10,16 @@ import { trpc } from 'src/utils/trpc';
 const Signin: NextPage = () => {
   const { data: providers } = trpc.auth.getProviders.useQuery();
   const {
-    query: { callbackUrl },
+    query: { callbackUrl, error },
   } = useRouter();
   return (
     <div className="t.flex t.flex-col t.justify-center t.h-screen t.items-center">
       <div className="t.container t.mx-auto t.py-8 t.px-4 t.flex t.flex-col t.justify-center t.items-center">
+        {error && (
+          <div className="t.p-4 t.mb-4 t.bg-blue t.rounded-lg">
+            Uh oh: {error}
+          </div>
+        )}
         <Logo className="t.mb-6 t.text-center" />
 
         {providers && (
