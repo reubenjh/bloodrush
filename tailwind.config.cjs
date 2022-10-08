@@ -38,7 +38,7 @@ module.exports = {
         xs: ['0.625rem'],
       },
       fontFamily: {
-        title: ['Inter', ...defaultTheme.fontFamily.sans],
+        title: ['Montserrat', ...defaultTheme.fontFamily.sans],
         logo: ['Noto Emoji'],
       },
     },

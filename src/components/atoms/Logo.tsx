@@ -10,8 +10,8 @@ export const Logo = () => {
   return (
     <div className="t.text-white">
       <span className="t.font-logo t.text-3xl t.font-bold">🩸</span>
-      <span className="t.relative t.top-[-2px] t.text-xl t.-mt-[2px] t.pr-1">
-        BR
+      <span className="t.font-title t.relative t.top-[-2px] t.text-2xl t.pr-1">
+        bloodrush
       </span>
     </div>
   );

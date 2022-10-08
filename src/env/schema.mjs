@@ -9,6 +9,16 @@ export const serverSchema = z.object({
   DATABASE_URL: z.string().url(),
   NODE_ENV: z.enum(['development', 'test', 'production']),
   KNOCK_SIGNING_KEY: z.string(),
+  NEXTAUTH_SECRET: z.string(),
+  NEXTAUTH_URL: z.preprocess(
+    // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
+    // Since NextAuth automatically uses the VERCEL_URL if present.
+    (str) => process.env.VERCEL_URL ?? str,
+    // VERCEL_URL doesnt include `https` so it cant be validated as a URL
+    process.env.VERCEL ? z.string() : z.string().url(),
+  ),
+  DISCORD_CLIENT_ID: z.string(),
+  DISCORD_CLIENT_SECRET: z.string(),
 });
 
 /**
@@ -19,13 +29,6 @@ export const serverSchema = z.object({
 export const clientSchema = z.object({
   NEXT_PUBLIC_OFFLINE: z.string(),
   NEXT_PUBLIC_KNOCK_PUBLIC_KEY: z.string(),
-  NEXT_PUBLIC_API_KEY: z.string(),
-  NEXT_PUBLIC_AUTH_DOMAIN: z.string(),
-  NEXT_PUBLIC_PROJECT_ID: z.string(),
-  NEXT_PUBLIC_STORAGE_BUCKET: z.string(),
-  NEXT_PUBLIC_MESSAGING_SENDER_ID: z.string(),
-  NEXT_PUBLIC_APP_ID: z.string(),
-  NEXT_PUBLIC_MEASUREMENT_ID: z.string(),
 });
 
 /**
@@ -37,11 +40,4 @@ export const clientSchema = z.object({
 export const clientEnv = {
   NEXT_PUBLIC_OFFLINE: process.env.NEXT_PUBLIC_OFFLINE,
   NEXT_PUBLIC_KNOCK_PUBLIC_KEY: process.env.NEXT_PUBLIC_KNOCK_PUBLIC_KEY,
-  NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY,
-  NEXT_PUBLIC_AUTH_DOMAIN: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-  NEXT_PUBLIC_PROJECT_ID: process.env.NEXT_PUBLIC_PROJECT_ID,
-  NEXT_PUBLIC_STORAGE_BUCKET: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  NEXT_PUBLIC_MESSAGING_SENDER_ID: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-  NEXT_PUBLIC_APP_ID: process.env.NEXT_PUBLIC_APP_ID,
-  NEXT_PUBLIC_MEASUREMENT_ID: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };

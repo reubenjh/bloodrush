@@ -19,11 +19,11 @@ const MyDocument: DocumentType = () => {
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Emoji:wght@500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Emoji:wght@700&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <body className="t.text-base t.bg-background dark:t.bg-dark-background t.text-text-color dark:t.text-dark-text-color">
+      <body className="t.text-base t.bg-dark-background dark:t.bg-dark-background t.text-text-color dark:t.text-dark-text-color">
         <Main />
         <NextScript />
       </body>

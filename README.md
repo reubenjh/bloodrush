@@ -21,6 +21,13 @@ We try to emphasize that these files are javascript for a reason, by explicitly 
 - [Prisma](https://prisma.io)
 - [TailwindCSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io) (using @next version? [see v10 docs here](https://trpc.io/docs/v10/))
+- [Next-Auth.js](https://next-auth.js.org)
+
+## Useful resources
+
+Here are some resources that we commonly refer to:
+
+- [Protecting routes with Next-Auth.js](https://next-auth.js.org/configuration/nextjs#unstable_getserversession)
 
 ## Deployment
 

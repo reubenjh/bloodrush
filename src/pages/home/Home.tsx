@@ -11,8 +11,8 @@ const Home: NextPage = () => {
       <Page>
         <div className="t.mt-[42vh] t.mb-28">
           <div className="t.text-center t.text-white t.mb-4">
-            <H1 className="!t.mb-2">Bloodrush.</H1>
-            <H3>Build decks. Tear your friends limb from limb.</H3>
+            <H1 className="!t.mb-2">Brew decks.</H1>
+            <H3>Tear your friends limb from limb.</H3>
           </div>
         </div>
       </Page>

@@ -1,13 +1,12 @@
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { BiPlus } from 'react-icons/bi';
-import { useAuth } from 'src/providers/AuthProvider';
-import { useUser } from 'src/providers/UserProvider';
 // import { useAuth } from 'src/providers/AuthProvider';
 // import { ModalType, useModal } from 'src/providers/ModalProvider';
 // import { useUser } from 'src/providers/UserProvider';
-import { userPath, registerPath, signinPath } from 'src/utils/paths';
+import { userPath } from 'src/utils/paths';
 import { MenuToggle } from '../Menu';
 import { Darkmode } from './Darkmode';
 import { HeaderButton } from './HeaderButton';
@@ -15,9 +14,10 @@ import { HeaderItem } from './HeaderItem';
 import { Notifications } from './Notifications';
 
 export const NavRight = () => {
-  const { user } = useUser();
   const router = useRouter();
-  const { signOut } = useAuth();
+  const { data: sessionData } = useSession();
+  console.log({ user: sessionData?.user });
+
   // const { openModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const ref = useDetectClickOutside({
@@ -32,15 +32,17 @@ export const NavRight = () => {
         <MenuToggle isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </span>
 
-      {!!user ? (
+      {!!sessionData?.user ? (
         <div className="t.hidden lg:t.flex lg:t.visible">
-          <HeaderItem path={userPath(user.id)} label={`@${user.name}`} />
+          <HeaderItem
+            path={userPath(sessionData.user.id)}
+            label={`@${sessionData.user.name}`}
+          />
           <HeaderItem label="Logout" onClick={signOut} />
         </div>
       ) : (
         <div className="t.hidden lg:t.flex lg:t.visible">
-          <HeaderItem path={registerPath} label="Register" />
-          <HeaderItem path={signinPath} label="Login" />
+          <HeaderItem label="Login" onClick={signIn} />
         </div>
       )}
 
