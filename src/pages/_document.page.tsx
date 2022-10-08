@@ -22,6 +22,11 @@ const MyDocument: DocumentType = () => {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@500;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <body className="t.text-base t.bg-background dark:t.bg-dark-background t.text-text-color dark:t.text-dark-text-color">
         <Main />
