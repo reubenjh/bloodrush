@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { BiPlus } from 'react-icons/bi';
+import { useAuth } from 'src/providers/AuthProvider';
+import { useUser } from 'src/providers/UserProvider';
 // import { useAuth } from 'src/providers/AuthProvider';
 // import { ModalType, useModal } from 'src/providers/ModalProvider';
 // import { useUser } from 'src/providers/UserProvider';
@@ -13,9 +15,9 @@ import { HeaderItem } from './HeaderItem';
 import { Notifications } from './Notifications';
 
 export const NavRight = () => {
-  // const { user } = useUser();
+  const { user } = useUser();
   const router = useRouter();
-  // const { signOut } = useAuth();
+  const { signOut } = useAuth();
   // const { openModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const ref = useDetectClickOutside({
@@ -30,9 +32,9 @@ export const NavRight = () => {
         <MenuToggle isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </span>
 
-      {/* {!!user ? (
+      {!!user ? (
         <div className="t.hidden lg:t.flex lg:t.visible">
-          <HeaderItem path={userPath(user.id)} label={`@${user.username}`} />
+          <HeaderItem path={userPath(user.id)} label={`@${user.name}`} />
           <HeaderItem label="Logout" onClick={signOut} />
         </div>
       ) : (
@@ -40,7 +42,7 @@ export const NavRight = () => {
           <HeaderItem path={registerPath} label="Register" />
           <HeaderItem path={signinPath} label="Login" />
         </div>
-      )} */}
+      )}
 
       {/* <HeaderButton
         className="t.ml-4 t.pr-4 t.hidden lg:t.flex lg:t.visible"

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/future/image';
-import bg from 'public/images/signin.webp';
+// import bg from 'public/images/signin.webp';
 import { useState } from 'react';
 import { Button } from 'src/components/atoms/Button';
 import { Input } from 'src/components/atoms/Input';
@@ -43,9 +43,9 @@ const SignIn: NextPage = () => {
   return (
     <Page>
       <div className="t.flex t.flex-row">
-        <div className="t.hidden md:t.block t.w-1/2 t.max-w-xs t.mr-6">
+        {/* <div className="t.hidden md:t.block t.w-1/2 t.max-w-xs t.mr-6">
           <Image src={bg} width={326} height={483} alt="" placeholder="blur" />
-        </div>
+        </div> */}
         <div className="sm:t.w-full md:t.w-1/2 xl:t.w-5/12">
           <H2 className="t.mb-5">Sign in</H2>
           <div className="t.mb-2">

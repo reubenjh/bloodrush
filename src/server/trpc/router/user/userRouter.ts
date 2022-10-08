@@ -13,12 +13,13 @@ export const userRouter = t.router({
   get: t.procedure
     .input(z.object({ remote_id: z.string().nullish() }))
     .query(({ ctx, input }) => {
-      if (!input.remote_id) {
-        throw new TRPCError({ message: 'Wot', code: 'BAD_REQUEST' });
-      }
-      return ctx.prisma.user.findUniqueOrThrow({
-        where: { remote_id: input.remote_id },
-      });
+      // if (!input.remote_id) {
+      //   throw new TRPCError({ message: 'Wot', code: 'BAD_REQUEST' });
+      // }
+      // return ctx.prisma.user.findUniqueOrThrow({
+      //   where: { remote_id: input.remote_id },
+      // });
+      return { success: true };
     }),
   create: t.procedure
     .input(
@@ -31,9 +32,7 @@ export const userRouter = t.router({
     .mutation(({ ctx, input }) => {
       return ctx.prisma.user.create({
         data: {
-          name: input.name,
-          email: input.email,
-          remote_id: input.remote_id,
+          ...input,
         },
       });
     }),

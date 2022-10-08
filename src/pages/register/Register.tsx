@@ -2,7 +2,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/future/image';
 import { useRouter } from 'next/router';
-import bg from 'public/images/reg.webp';
+// import bg from 'public/images/reg.webp';
 import { useState } from 'react';
 import { Button } from 'src/components/atoms/Button';
 import { Input } from 'src/components/atoms/Input';
@@ -12,7 +12,8 @@ import { H2 } from 'src/components/atoms/Typography/H2';
 import { Page } from 'src/components/layouts/Page';
 import { useAuth } from 'src/providers/AuthProvider';
 import { signinPath } from 'src/utils/paths';
-import { trpc } from 'src/utils/trpc';
+
+// import { trpc } from 'src/utils/trpc';
 
 const Register: NextPage = () => {
   const router = useRouter();
@@ -36,8 +37,8 @@ const Register: NextPage = () => {
   const [confirmStep, setConfirmStep] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 
-  const { data: isUsernameAvailable, mutateAsync: getIsUsernameAvailable } =
-    trpc.useMutation(['users.isUsernameAvailable']);
+  // const { data: isUsernameAvailable, mutateAsync: getIsUsernameAvailable } =
+  //   trpc.useMutation(['users.isUsernameAvailable']);
 
   const onRegister = async () => {
     // clear errs
@@ -59,8 +60,8 @@ const Register: NextPage = () => {
     if (password !== passwordMatch) return setPasswordMismatchError(true);
 
     // check username availability
-    await getIsUsernameAvailable({ username });
-    if (!isUsernameAvailable) return setUsernameUnavailableError(true);
+    // await getIsUsernameAvailable({ username });
+    // if (!isUsernameAvailable) return setUsernameUnavailableError(true);
 
     // sign up
     try {
@@ -85,7 +86,7 @@ const Register: NextPage = () => {
         </div>
       ) : (
         <div className="t.flex t.flex-row">
-          <div className="t.hidden md:t.block t.w-1/2 t.max-w-xs t.mr-6">
+          {/* <div className="t.hidden md:t.block t.w-1/2 t.max-w-xs t.mr-6">
             <Image
               src={bg}
               width={559}
@@ -93,7 +94,7 @@ const Register: NextPage = () => {
               alt=""
               placeholder="blur"
             />
-          </div>
+          </div> */}
           <div className="sm:t.w-full md:t.w-1/2 xl:t.w-5/12">
             {!confirmStep ? (
               <>

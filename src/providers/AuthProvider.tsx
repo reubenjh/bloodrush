@@ -48,6 +48,7 @@ const AuthProvider = ({
 
   useEffect(() => {
     return getAuth(app).onAuthStateChanged(async (firebaseUser) => {
+      console.log({ firebaseUser });
       if (firebaseUser) {
         try {
           if (firebaseUser.emailVerified) {
