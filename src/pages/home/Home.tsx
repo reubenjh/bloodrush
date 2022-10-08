@@ -1,13 +1,10 @@
 import type { NextPage } from 'next';
-import { useSession } from 'next-auth/react';
 import { H1 } from 'src/components/atoms/Typography/H1';
 import { H3 } from 'src/components/atoms/Typography/H3';
 import { Page } from 'src/components/layouts/Page';
 import { SplashImage } from 'src/pages/home/SplashImage';
 
 const Home: NextPage = () => {
-  // const { data: sessionData } = useSession();
-  // console.log({ user: sessionData?.user });
   return (
     <>
       <SplashImage />
