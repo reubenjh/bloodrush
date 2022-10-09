@@ -20,6 +20,7 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/auth/signin',
+    verifyRequest: '/auth/verify-request',
   },
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),

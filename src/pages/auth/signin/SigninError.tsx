@@ -7,7 +7,7 @@ const errorMessageMap: Record<string, string> = {
   Default: 'An unknown error occurred.',
 };
 
-export const SignInError = ({
+export const SigninError = ({
   error,
   hasTrpcError,
 }: {
@@ -15,9 +15,8 @@ export const SignInError = ({
   hasTrpcError: boolean;
 }) => {
   return (
-    <div className="t.p-6 t.my-6 t.bg-blue t.text-white t.rounded-lg t.max-w-sm">
+    <>
       <div>Uh oh.</div>
-
       {error && (
         <div className="t.mt-2">
           {errorMessageMap[error as string] ?? errorMessageMap.Default}
@@ -29,6 +28,6 @@ export const SignInError = ({
           hustle to get it sorted. Thanks for your patience.
         </div>
       )}
-    </div>
+    </>
   );
 };
