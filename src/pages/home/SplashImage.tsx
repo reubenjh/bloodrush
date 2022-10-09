@@ -6,8 +6,8 @@ export const SplashImage = () => (
     <Image
       className="t.-z-[1] t.absolute t.w-full t.h-[calc(100%-80px)] t.max-h-[788px] t.object-cover t.object-[center_30%] t.gradient-mask-b-80"
       alt=""
-      height={804}
-      width={1007}
+      height={1024}
+      width={1024}
       src={bg}
       placeholder="blur"
     />

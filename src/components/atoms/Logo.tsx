@@ -5,7 +5,8 @@ export const Logo = ({ className = '' }: { className?: string }) => {
   const { pathname } = useRouter();
   return (
     <div
-      className={`${
+      className={` t.border-b
+      ${
         pathname === homePath
           ? 't.text-white'
           : 't.text-black dark:t.text-white'
