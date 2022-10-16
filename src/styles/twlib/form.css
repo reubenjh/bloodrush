@@ -1,0 +1,36 @@
+/* visibility toggle */
+.inline-radio-group > label {
+  @apply t.mr-2.5 t.cursor-pointer t.rounded t.border t.border-line-color t.py-1.5 t.px-3 
+  dark:t.border-dark-line-color dark:t.bg-dark-background;
+}
+.form-check-inline {
+  @apply t.mr-1 t.mb-0;
+}
+.form-check-inline > .form-check-input {
+  @apply t.border t.border-line-color 
+    checked:t.border-primary checked:t.bg-primary focus:t.shadow-[0_0_0_0.25rem] focus:t.shadow-primary-border-shadow 
+    dark:t.bg-dark-background;
+}
+.form-check-inline > .form-check-input > label {
+  @apply t.cursor-pointer;
+}
+
+/* inputs, typeaheads and selects */
+.form-control,
+.form-select,
+.input-group-text {
+  @apply t.text-base 
+    focus:!t.border-primary-border focus:t.shadow-[0_0_0_0.25rem] focus:t.shadow-primary-border-shadow 
+    dark:t.border-dark-line-color dark:t.bg-dark-background dark:t.text-dark-text-color placeholder:dark:t.text-dark-text-color;
+}
+
+/* inputs, typeaheads and selects */
+.form-control.error {
+  @apply !t.border-red !t.shadow-[0_0_0_0.25rem] !t.shadow-red-border-shadow;
+}
+.rbt.error input.rbt-input {
+  @apply !t.border-red !t.shadow-[0_0_0_0.25rem] !t.shadow-red-border-shadow;
+}
+.dropdown-item {
+  @apply t.text-base;
+}

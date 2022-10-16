@@ -1,0 +1,8 @@
+.bloodrush-card {
+  @apply t.cursor-pointer t.border t.border-transparent t.transition-all
+    hover:t.border-primary hover:t.shadow-[0_0_14px_rgba(255,123,0,0.75)];
+}
+
+.bloodrush-quote {
+  @apply t.mb-6 t.border-l-[3px] t.border-gray-300 t.px-6 t.italic t.opacity-70 dark:t.border-gray-500 dark:t.opacity-60;
+}

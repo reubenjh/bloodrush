@@ -6,7 +6,7 @@ import { H3 } from 'src/components/atoms/Typography/H3';
 import { Page } from 'src/components/layouts/Page';
 import { SplashImage } from 'src/pages/home/SplashImage';
 
-const text = ['Bloodrush.', 'Brew Decks.', 'Crush your friends.'];
+const text = ['Bloodrush.', 'Brew decks.', 'Crush your friends.'];
 
 const Home: NextPage = () => {
   const [index, setIndex] = useState(0);

@@ -1,4 +1,5 @@
 // src/pages/_app.tsx
+import 'bootstrap/dist/css/bootstrap.min.css';
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';

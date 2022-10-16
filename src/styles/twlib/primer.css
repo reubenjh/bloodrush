@@ -1,0 +1,15 @@
+.ql-toolbar .ql-header {
+  @apply dark:t.text-dark-text-color;
+}
+
+.ql-toolbar path {
+  @apply dark:t.stroke-dark-text-color;
+}
+
+.ql-toolbar line {
+  @apply dark:t.stroke-dark-text-color;
+}
+
+.ql-editor.ql-blank::before {
+  @apply dark:t.text-dark-text-color;
+}

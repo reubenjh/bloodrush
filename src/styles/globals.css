@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  @import './twlib/custom.css';
+
+  @import './twlib/form.css';
+  @import './twlib/notifications.css';
+  @import './twlib/filters.css';
+  @import './twlib/primer.css';
+  @import './twlib/lists.css';
+}

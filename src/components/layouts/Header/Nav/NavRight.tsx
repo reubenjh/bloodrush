@@ -35,7 +35,9 @@ export const NavRight = () => {
         <div className="t.hidden lg:t.flex lg:t.visible">
           <HeaderItem
             path={userPath(sessionData.user.id)}
-            label={`@${sessionData.user.name}`}
+            label={
+              sessionData.user.name ? `@${sessionData.user.name}` : 'Account'
+            }
           />
           <HeaderItem label="Logout" onClick={signOut} />
         </div>

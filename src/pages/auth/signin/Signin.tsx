@@ -7,8 +7,9 @@ import bg from 'public/images/old.webp';
 import { useMemo, useState } from 'react';
 import { Button } from 'src/components/atoms/Button';
 import { Input } from 'src/components/atoms/Input';
-import { LineWithText } from 'src/components/atoms/LineWithText';
+import { Line } from 'src/components/atoms/Line';
 import { H2 } from 'src/components/atoms/Typography/H2';
+import { P } from 'src/components/atoms/Typography/P';
 import { Page } from 'src/components/layouts/Page';
 import { trpc } from 'src/utils/trpc';
 import { SigninError } from './SigninError';
@@ -47,27 +48,9 @@ const Signin: NextPage = () => {
     <Page>
       <div className="t.flex t.flex-row t.justify-center">
         <div className="t.hidden md:t.block t.w-1/2 t.h-1/2 t.max-w-xl t.mr-6">
-          <div className="t.relative">
-            <Image
-              src={bg}
-              width={750}
-              height={457}
-              alt=""
-              placeholder="blur"
-            />
-            <div
-              className="t.absolute t.top-0 t.left-0 t.h-full t.w-full"
-              style={{
-                backgroundImage: `linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.8) 100%,
-        rgba(0, 0, 0, 0)`,
-              }}
-            ></div>
-          </div>
+          <Image src={bg} width={750} height={457} alt="" placeholder="blur" />
         </div>
-        <div className="t.w-[16rem] t.ml-8 t.flex t.flex-col t.justify-center t.items-center">
+        <div className="t.w-[24rem] t.ml-8 t.flex t.flex-col">
           <H2 className="t.mb-5">Sign in</H2>
           {emailProvider && (
             <>
@@ -80,15 +63,20 @@ const Signin: NextPage = () => {
                 />
               </div>
 
-              <Button className="t.w-full" onClick={onEmailSignIn}>
-                Email
+              <Button className="t.max-w-[160px]" onClick={onEmailSignIn}>
+                Send magic link
               </Button>
+              <Line className="t.my-4" />
+              <P className="t.text-sm">
+                If you're creating a new account, we'll detect that and take you
+                to a setup page after you verify your email.
+              </P>
 
-              <LineWithText className="t.my-4" text="or" />
+              {/* <LineWithText className="t.my-4" text="or" /> */}
             </>
           )}
 
-          {oAuthProviders && (
+          {/* {oAuthProviders && (
             <>
               {Object.values(oAuthProviders).map((provider) => (
                 <Button
@@ -104,7 +92,7 @@ const Signin: NextPage = () => {
                 </Button>
               ))}
             </>
-          )}
+          )} */}
 
           {error && (
             <div className="alert alert-danger t.my-2 t.max-w-sm" role="alert">

@@ -33,7 +33,7 @@ export const Input = ({
   }, [disabled, autoFocus, value]);
 
   return (
-    <div className={`input-group t.mb-3`}>
+    <div className={`input-group t.mb-2`}>
       {IconComponent && (
         <span className="input-group-text t.bg-secondary">
           <IconComponent color={'white'} />

@@ -30,7 +30,7 @@ export const Page = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="og:image" content={image} />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* content */}
       <main>
