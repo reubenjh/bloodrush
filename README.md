@@ -17,6 +17,18 @@ Log into dev db
 - pscale auth login
 - pscale shell bloodrush dev
 
+## Scripting
+
+Switch to DATABASE_SCRIPTING_URL in prisma schema as your connection string - see [here](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/connection-pool#default-pool-timeout)
+Set up scripts
+Run them with npm run x
+
+## Development
+
+Generate local prisma code from schema files with npm run generate
+Push schema changes to planetscale dev with npm run push
+Run local dev server with npm run dev
+
 ## Deployment
 
 ## Vercel

@@ -7,7 +7,7 @@ import { Header } from 'src/components/layouts/Header';
 
 const DEFAULT_TITLE = 'Bloodrush';
 const DEFAULT_DESCRIPTION = 'A Flesh and Blood deck building app.';
-const DEFAULT_IMAGE = 'https://i.imgur.com/BLlNqQm.png';
+const DEFAULT_IMAGE = 'todo';
 
 type PageProps = {
   children: any;

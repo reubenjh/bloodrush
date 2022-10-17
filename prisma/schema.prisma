@@ -12,7 +12,8 @@ datasource db {
     referentialIntegrity = "prisma"
 }
 
-// Necessary for Next auth
+// Next auth
+
 model Account {
     id                String  @id @default(cuid())
     userId            String
@@ -26,7 +27,7 @@ model Account {
     scope             String?
     id_token          String? @db.Text
     session_state     String?
-    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user              User    @relation(fields: [userId], references: [id])
 
     @@unique([provider, providerAccountId])
 }
@@ -55,4 +56,68 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// Bloodrush domain specific models
+
+model Set {
+    key   String @id
+    name  String
+    cards Card[]
+}
+
+model Card {
+    key        String @id
+    name       String
+    setKey     String
+    rarity     String
+    artist     String
+    card_type  String // enum
+    supertypes String // array
+
+    keywords        String? // array
+    subtypes        String? // array
+    game_text       String?  @db.VarChar(1000)
+    flavor_text     String?  @db.VarChar(1000)
+    specializations String? // array
+    essences        String? // array
+    legendary       Boolean?
+
+    resources Int?
+    cost      Int?
+    intellect Int?
+    life      Int?
+    attack    Int?
+    defense   Int?
+
+    set       Set        @relation(fields: [setKey], references: [key], onDelete: Cascade)
+    variants  Variant[]
+    deckCards DeckCard[]
+}
+
+model Variant {
+    key     String @id
+    src     String
+    cardKey String
+
+    card      Card       @relation(fields: [cardKey], references: [key], onDelete: Cascade)
+    deckCards DeckCard[]
+}
+
+model Deck {
+    id        String     @id @default(cuid())
+    deckCards DeckCard[]
+}
+
+model DeckCard {
+    id         String @id @default(cuid())
+    deckId     String
+    cardKey    String
+    variantKey String
+    finish     String
+    quantity   Int
+
+    deck    Deck    @relation(fields: [deckId], references: [id], onDelete: Cascade)
+    card    Card    @relation(fields: [cardKey], references: [key], onDelete: Cascade)
+    variant Variant @relation(fields: [variantKey], references: [key], onDelete: Cascade)
 }
