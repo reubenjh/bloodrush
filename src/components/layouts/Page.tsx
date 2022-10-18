@@ -37,8 +37,8 @@ export const Page = ({
         <Header />
         {/* <Loader> */}
         {hero && hero}
-        <div className="t.flex t.flex-col t.justify-between t.min-h-[calc(100vh-4.375rem)]">
-          <div className="t.container t.mx-auto t.py-8 t.px-4">
+        <div className="flex flex-col justify-between min-h-[calc(100vh-4.375rem)]">
+          <div className="container mx-auto py-8 px-4">
             <div>{children}</div>
           </div>
           {/* <Footer /> */}

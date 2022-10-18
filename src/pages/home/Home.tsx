@@ -22,9 +22,9 @@ const Home: NextPage = () => {
     <>
       <SplashImage />
       <Page>
-        <div className="t.mt-[40vh] t.mb-28">
-          <div className="t.text-center t.text-white t.mb-4">
-            <H1 className="!t.mb-2">
+        <div className="mt-[40vh] mb-28">
+          <div className="text-center text-white mb-4">
+            <H1 className="!mb-2">
               <TextTransition inline springConfig={presets.default}>
                 {text[index % text.length]}
               </TextTransition>

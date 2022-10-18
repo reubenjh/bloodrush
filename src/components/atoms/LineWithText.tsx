@@ -6,13 +6,13 @@ export const LineWithText = ({
   text: string;
 }) => {
   return (
-    <div className={`t.w-full ${className} t.flex t.items-center`}>
+    <div className={`w-full ${className} flex items-center`}>
       <div
-        className={`t.grow t.h-[1px] t.bg-line-color dark:t.bg-dark-line-color`}
+        className={`grow h-[1px] bg-line-color dark:bg-dark-line-color`}
       ></div>
-      <span className="t.shrink t.mx-2">{text}</span>
+      <span className="shrink mx-2">{text}</span>
       <div
-        className={`t.grow t.h-[1px] t.bg-line-color dark:t.bg-dark-line-color`}
+        className={`grow h-[1px] bg-line-color dark:bg-dark-line-color`}
       ></div>
     </div>
   );

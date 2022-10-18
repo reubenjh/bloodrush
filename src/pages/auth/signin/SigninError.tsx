@@ -18,12 +18,12 @@ export const SigninError = ({
     <>
       <div>Uh oh.</div>
       {error && (
-        <div className="t.mt-2">
+        <div className="mt-2">
           {errorMessageMap[error as string] ?? errorMessageMap.Default}
         </div>
       )}
       {hasTrpcError && (
-        <div className="t.mt-2">
+        <div className="mt-2">
           Looks like this issue is in our system. We've been notified and will
           hustle to get it sorted. Thanks for your patience.
         </div>

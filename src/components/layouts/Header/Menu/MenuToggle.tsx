@@ -25,23 +25,21 @@ export const MenuToggle = ({
   if (!theme) return null;
 
   return (
-    <div className="t.px-1 t.cursor-pointer t.relative" ref={parent as any}>
+    <div className="px-1 cursor-pointer relative" ref={parent as any}>
       <div onMouseDown={() => setIsOpen(!isOpen)}>
         <Icon
           size={20}
           aria-expanded={isOpen}
           aria-haspopup="true"
-          className="t.inline-block t.mb-[2px] t.mr-[2px] t.animate-in t.fade-in"
+          className="inline-block mb-[2px] mr-[2px] animate-in fade-in"
           color={
             // isDark || pathname === homePath ? 'white' : 'rgba(0,0,0,0.55)'
             'white'
           }
         />
         <span
-          className={`t.text-sm ${
-            isDark || pathname === homePath
-              ? 't.text-white'
-              : 't.text-nav-color'
+          className={`text-sm ${
+            isDark || pathname === homePath ? 'text-white' : 'text-nav-color'
           }`}
         >
           Menu

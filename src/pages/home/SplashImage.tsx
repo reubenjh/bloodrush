@@ -4,7 +4,7 @@ import bg from 'public/images/old.webp';
 export const SplashImage = () => (
   <>
     <Image
-      className="t.-z-[1] t.absolute t.w-full t.h-[calc(100%-80px)] t.max-h-[788px] t.object-cover t.object-[center_30%] t.gradient-mask-b-80"
+      className="-z-[1] absolute w-full h-[calc(100%-80px)] max-h-[788px] object-cover object-[center_30%] gradient-mask-b-80"
       alt=""
       height={1024}
       width={1024}
@@ -12,7 +12,7 @@ export const SplashImage = () => (
       placeholder="blur"
     />
     <div
-      className="t.-z-[1] t.absolute t.w-full t.h-[calc(100%-80px)] t.max-h-[788px] t.gradient-mask-b-80"
+      className="-z-[1] absolute w-full h-[calc(100%-80px)] max-h-[788px] gradient-mask-b-80"
       style={{
         backgroundImage: `linear-gradient(
         to bottom,

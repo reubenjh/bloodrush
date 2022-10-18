@@ -9,7 +9,7 @@ const Cards: NextPage = () => {
       description={`Explore all cards in the Flesh and Blood TCG card pool.`}
       image="todo"
     >
-      <div className="t.-mt-4">
+      <div className="-mt-4">
         <SearchCards />
       </div>
     </Page>

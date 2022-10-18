@@ -11,15 +11,15 @@ export const ExternalLink = ({
   const buildLinkColorClasses = () => {
     switch (color) {
       case 'primary':
-        return 't.text-primary hover:t.text-primary-light';
+        return 'text-primary hover:text-primary-light';
       case 'inherit':
-        return 't.text-inherit hover:t.text-inherit';
+        return 'text-inherit hover:text-inherit';
     }
   };
 
   return (
     <a
-      className={`t.cursor-pointer t.transition-all ${buildLinkColorClasses()} ${className}`}
+      className={`cursor-pointer transition-all ${buildLinkColorClasses()} ${className}`}
       {...props}
     >
       {children}

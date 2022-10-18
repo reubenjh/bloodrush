@@ -94,11 +94,11 @@ export const SearchCards = () => {
     <div>
       {/* search string */}
       <div
-        className="t.sticky t.top-0 t.overflow-auto t.z-10 
-        t.bg-background 
-        dark:t.bg-dark-background"
+        className="sticky top-0 overflow-auto z-10 
+        bg-background 
+        dark:bg-dark-background"
       >
-        <div className="t.pt-4">
+        <div className="pt-4">
           <Input
             IconComponent={BiSearch}
             onChange={setSearchString}
@@ -115,7 +115,7 @@ export const SearchCards = () => {
         setFilters={setFilters}
       />
 
-      {!filtersOpen && <Line className="t.mt-0 t.mb-2" />}
+      {!filtersOpen && <Line className="mt-0 mb-2" />}
 
       {!!filters.length && (
         <FilterBadges
@@ -133,7 +133,7 @@ export const SearchCards = () => {
       {showNoResultsSplash ? (
         <NoResults />
       ) : (
-        <div className="t.mt-4">
+        <div className="mt-4">
           <CardPreviewList cards={resultCards}></CardPreviewList>
         </div>
       )}

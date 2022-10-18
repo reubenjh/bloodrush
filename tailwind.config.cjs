@@ -43,7 +43,6 @@ module.exports = {
       },
     },
   },
-  prefix: 't.',
   plugins: [
     require('tailwindcss-animate'),
     require('@tailwindcss/line-clamp'),

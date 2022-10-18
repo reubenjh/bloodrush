@@ -8,8 +8,8 @@ import React, {
 } from 'react';
 
 export enum Theme {
-  DARK = 't.dark',
-  LIGHT = 't.light',
+  DARK = 'dark',
+  LIGHT = 'light',
 }
 type ThemeContextProps = {
   theme?: Theme;

@@ -32,7 +32,7 @@ export const Notifications = () => {
     >
       <span ref={notifButtonRef}>
         <Tooltip message="Notifications">
-          <span className="t.px-1">
+          <span className="px-1">
             <IoMdNotificationsOutline
               onClick={(e: any) => setIsVisible(!isVisible)}
               size={20}

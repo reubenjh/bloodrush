@@ -33,9 +33,14 @@ export const Input = ({
   }, [disabled, autoFocus, value]);
 
   return (
-    <div className={`input-group t.mb-2`}>
+    <div className="mb-2 flex items-stretch w-full">
       {IconComponent && (
-        <span className="input-group-text t.bg-secondary">
+        <span
+          className="rounded-tr-none rounded-br-none flex items-center py-1.5 px-3 text-center whitespace-nowrap border rounded-md
+        bg-secondary border-line-color 
+        dark:border-dark-line-color dark:bg-dark-background
+        "
+        >
           <IconComponent color={'white'} />
         </span>
       )}
@@ -44,8 +49,16 @@ export const Input = ({
           onChange && onChange(e.target.value);
         }}
         type={type ?? 'text'}
-        className={`form-control t.text-base ${error && 'error'} ${
-          isCopyThingy && 't.cursor-pointer'
+        className={`ml-[-1px] rounded-tl-none rounded-bl-none grow py-1.5 px-3 transition-all border mx-1 outline-none rounded-md 
+        border-line-color 
+        focus:!border-primary-border focus:shadow-[0_0_0_0.25rem] focus:shadow-primary-border-shadow 
+        dark:bg-dark-background dark:text-dark-text-color placeholder:dark:text-dark-text-color dark:border-dark-line-color ${
+          isCopyThingy ? 'cursor-pointer' : ''
+        } 
+        ${
+          error
+            ? '!border-red !shadow-[0_0_0_0.25rem] !shadow-red-border-shadow'
+            : ''
         }`}
         placeholder={placeholder ?? ''}
         min="0"

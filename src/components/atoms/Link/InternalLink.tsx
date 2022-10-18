@@ -15,18 +15,18 @@ export const InternalLink = ({
   const buildLinkColorClasses = () => {
     switch (color) {
       case 'primary':
-        return 't.text-primary hover:t.text-primary-light';
+        return 'text-primary hover:text-primary-light';
       case 'white':
-        return 't.text-white hover:t.text-primary';
+        return 'text-white hover:text-primary';
       case 'inherit':
-        return 't.text-inherit';
+        return 'text-inherit';
     }
   };
 
   return (
     <Link {...props}>
       <a
-        className={`t.cursor-pointer t.transition-all ${buildLinkColorClasses()} ${className}`}
+        className={`cursor-pointer transition-all ${buildLinkColorClasses()} ${className}`}
       >
         {children}
       </a>

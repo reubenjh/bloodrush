@@ -16,11 +16,11 @@ export const Button = ({
   const getVariantClasses = () => {
     switch (variant) {
       case 'primary':
-        return 't.border-[1.5px] t.border-primary hover:t.text-white hover:t.bg-primary t.px-3 t.py-2 t.min-w-[100px]';
+        return 'border-[1.5px] border-primary hover:text-white hover:bg-primary px-3 py-2 min-w-[100px]';
       case 'secondary':
-        return 't.border-[1.5px] t.border-line-color hover:t.text-black dark:t.border-dark-line-color hover:t.border-black dark:hover:t.border-white dark:hover:t.text-white t.px-3 t.py-2 t.min-w-[100px]';
+        return 'border-[1.5px] border-line-color hover:text-black dark:border-dark-line-color hover:border-black dark:hover:border-white dark:hover:text-white px-3 py-2 min-w-[100px]';
       case 'danger':
-        return 't.border-[1.5px] t.border-red hover:t.text-white hover:t.bg-red t.px-3 t.py-2 t.min-w-[100px]';
+        return 'border-[1.5px] border-red hover:text-white hover:bg-red px-3 py-2 min-w-[100px]';
       case 'minimal':
         return '';
     }
@@ -28,8 +28,8 @@ export const Button = ({
   return (
     <button
       className={`
-        t.rounded-md t.transition-all 
-        disabled:t.opacity-60
+        rounded-md transition-all 
+        disabled:opacity-60
         ${getVariantClasses()} 
         ${className}`}
       onClick={onClick}

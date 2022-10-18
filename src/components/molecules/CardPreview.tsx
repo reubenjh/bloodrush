@@ -17,8 +17,8 @@ export const CardPreview = ({ card }: { card: CardType }) => {
             tailwind jit strips them and the images go whack
       */}
       <div
-        className="t.h-[357px] t.w-[256px] t.flex t.flex-col t.justify-center 
-          t.rounded-[17px] curiosa-card"
+        className="h-[357px] w-[256px] flex flex-col justify-center 
+          rounded-[17px] curiosa-card"
       >
         <Image
           height={CARD_PREVIEW_HEIGHT}
@@ -37,10 +37,10 @@ export const CardPreview = ({ card }: { card: CardType }) => {
       {/* include deck quantity update footer */}
       {/* {!!deck && (
         <>
-          <div className="t.flex t.flex-row t.justify-center t.my-2">
+          <div className="flex flex-row justify-center my-2">
             <QuickQuantitySelector deck={deck} card={card} />
           </div>
-          <Line className="t.my-1" />
+          <Line className="my-1" />
         </>
       )} */}
     </>

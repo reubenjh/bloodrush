@@ -14,10 +14,10 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <div
-      className="t.absolute t.rounded-md t.bg-white t.z-20 t.origin-top-right t.w-48 t.py-1.5 t.right-1 
-        t.shadow-lg t.ring-1 t.ring-black t.ring-opacity-5"
+      className="absolute rounded-md bg-white z-20 origin-top-right w-48 py-1.5 right-1 
+        shadow-lg ring-1 ring-black ring-opacity-5"
     >
-      <div className="t.text-sm" role="menu">
+      <div className="text-sm" role="menu">
         <MenuItem path={homePath} label="Home" />
         {/* <MenuItem path={decksPath} label="Decks" /> */}
         <MenuItem path={cardsPath} label="Cards" />
@@ -33,7 +33,7 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
           <MenuItem label="Logout" onClick={signOut} />
 
           {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
-          <div className={`t.h-[1px] t.bg-line-color t.my-1.5`}></div>
+          <div className={`h-[1px] bg-line-color my-1.5`}></div>
 
           {/* <MenuItem
             label="New Deck"
@@ -53,7 +53,7 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
           <MenuItem onClick={signIn} label="Login" />
 
           {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
-          <div className={`t.h-[1px] t.bg-line-color t.my-1.5`}></div>
+          <div className={`h-[1px] bg-line-color my-1.5`}></div>
 
           {/* <MenuItem
             label="New Deck"

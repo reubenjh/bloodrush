@@ -13,24 +13,23 @@ export const LoadingSpinner = ({
   isLoading,
 }: LoadingSpinnerProps) => {
   const whiteSpinnerClasses = useMemo(
-    () => '!t.border-t-white !t.border-l-white !t.border-r-white',
+    () => '!border-t-white !border-l-white !border-r-white',
     [],
   );
   const blackSpinnerClasses = useMemo(
-    () => '!t.border-t-secondary !t.border-l-secondary !t.border-r-secondary',
+    () => '!border-t-secondary !border-l-secondary !border-r-secondary',
     [],
   );
   const darkSpinnerClasses = useMemo(
-    () =>
-      'dark:!t.border-t-white dark:!t.border-l-white dark:!t.border-r-white',
+    () => 'dark:!border-t-white dark:!border-l-white dark:!border-r-white',
     [],
   );
   const router = useRouter();
   return isLoading ? (
-    <div className="t.flex t.flex-col t.justify-center t.h-full">
+    <div className="flex flex-col justify-center h-full">
       <ClipLoader
         cssOverride={{ display: 'block' }}
-        className={`t.m-auto ${
+        className={`m-auto ${
           router.pathname === homePath
             ? whiteSpinnerClasses
             : `${blackSpinnerClasses} ${darkSpinnerClasses}`
