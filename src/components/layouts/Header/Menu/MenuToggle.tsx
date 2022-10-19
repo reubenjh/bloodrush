@@ -32,10 +32,7 @@ export const MenuToggle = ({
           aria-expanded={isOpen}
           aria-haspopup="true"
           className="inline-block mb-[2px] mr-[2px] animate-in fade-in"
-          color={
-            // isDark || pathname === homePath ? 'white' : 'rgba(0,0,0,0.55)'
-            'white'
-          }
+          color={isDark || pathname === homePath ? 'white' : 'rgba(0,0,0,0.55)'}
         />
         <span
           className={`text-sm ${

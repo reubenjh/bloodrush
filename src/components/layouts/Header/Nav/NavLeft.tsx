@@ -1,5 +1,8 @@
 import { InternalLink } from 'src/components/atoms/Link/InternalLink';
-import { homePath, decksPath, cardsPath } from 'src/utils/paths';
+import {
+  homePath, // decksPath,
+  cardsPath,
+} from 'src/utils/paths';
 import { Logo } from '../../../atoms/Logo';
 import { HeaderItem } from './HeaderItem';
 

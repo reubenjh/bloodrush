@@ -1,14 +1,16 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import { BiPlus } from 'react-icons/bi';
+// import { useRouter } from 'next/router';
+// import { BiPlus } from 'react-icons/bi';
 // import { ModalType, useModal } from 'src/providers/ModalProvider';
-import { cardsPath, decksPath, homePath, userPath } from 'src/utils/paths';
+import {
+  cardsPath, // decksPath,
+  homePath,
+  userPath,
+} from 'src/utils/paths';
 import { MenuItem } from './MenuItem';
 
 export const Menu = ({ onClose }: { onClose: () => void }) => {
-  // const { user } = useUser();
-  const router = useRouter();
-  // const { signOut } = useAuth();
+  // const router = useRouter();
   // const { openModal } = useModal();
   const { data: sessionData } = useSession();
 
@@ -22,20 +24,19 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
         {/* <MenuItem path={decksPath} label="Decks" /> */}
         <MenuItem path={cardsPath} label="Cards" />
         {/* <MenuItem path={contentPath} label="Content" /> */}
-      </div>
 
-      {!!sessionData?.user ? (
-        <>
-          <MenuItem
-            path={userPath(sessionData.user.id)}
-            label={`@${sessionData.user.name}`}
-          />
-          <MenuItem label="Logout" onClick={signOut} />
+        {!!sessionData?.user ? (
+          <>
+            <MenuItem
+              path={userPath(sessionData.user.id)}
+              label={`@${sessionData.user.name}`}
+            />
+            <MenuItem label="Logout" onClick={signOut} />
 
-          {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
-          <div className={`h-[1px] bg-line-color my-1.5`}></div>
+            {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
+            {/* <div className={`h-[1px] bg-line-color my-1.5`}></div> */}
 
-          {/* <MenuItem
+            {/* <MenuItem
             label="New Deck"
             IconComponent={BiPlus}
             onClick={() => {
@@ -47,15 +48,15 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
               }
             }}
           /> */}
-        </>
-      ) : (
-        <>
-          <MenuItem onClick={signIn} label="Login" />
+          </>
+        ) : (
+          <>
+            <MenuItem onClick={signIn} label="Login" />
 
-          {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
-          <div className={`h-[1px] bg-line-color my-1.5`}></div>
+            {/*  Note we can't use line component here as this menu isn't dark mode responsive */}
+            {/* <div className={`h-[1px] bg-line-color my-1.5`}></div> */}
 
-          {/* <MenuItem
+            {/* <MenuItem
             label="New Deck"
             IconComponent={BiPlus}
             onClick={() => {
@@ -65,8 +66,9 @@ export const Menu = ({ onClose }: { onClose: () => void }) => {
               onClose();
             }}
           /> */}
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

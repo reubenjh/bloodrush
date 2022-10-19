@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import { ReactNode } from 'react';
 import { Header } from 'src/components/layouts/Header';
+import { Modal } from './Modal';
 
 // import { Footer } from './Footer';
 // import { Loader } from './Loader';
@@ -10,7 +12,7 @@ const DEFAULT_DESCRIPTION = 'A Flesh and Blood deck building app.';
 const DEFAULT_IMAGE = 'todo';
 
 type PageProps = {
-  children: any;
+  children: ReactNode;
   hero?: JSX.Element;
   title?: string;
   description?: string;
@@ -45,7 +47,7 @@ export const Page = ({
         </div>
         {/* </Loader> */}
       </main>
-      {/* <Modal /> */}
+      <Modal />
     </>
   );
 };
