@@ -1,5 +1,5 @@
 import Image from 'next/future/image';
-import { ModalType, useModal } from 'src/providers/ModalProvider';
+import { ModalType, useModal } from 'src/providers/ModalProvider/ModalProvider';
 import {
   CardType,
   CARD_PREVIEW_HEIGHT,

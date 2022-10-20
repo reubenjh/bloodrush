@@ -4,7 +4,7 @@ import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppType } from 'next/app';
-import { ModalProvider } from 'src/providers/ModalProvider';
+import { ModalProvider } from 'src/providers/ModalProvider/ModalProvider';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
 import '../styles/globals.css';
 import { trpc } from '../utils/trpc';

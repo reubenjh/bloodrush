@@ -105,8 +105,12 @@ model Variant {
 }
 
 model Deck {
-    id        String     @id @default(cuid())
-    deckCards DeckCard[]
+    id          String     @id @default(cuid())
+    name        String
+    format      String // enum
+    visibility  String // enum
+    description String?    @db.VarChar(2000) // todo enforce 2k char limit
+    deckCards   DeckCard[]
 }
 
 model DeckCard {

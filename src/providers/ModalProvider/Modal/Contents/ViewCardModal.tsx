@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from 'src/components/atoms/Button';
 import { Line } from 'src/components/atoms/Line';
 import { OnClickLink } from 'src/components/atoms/Link/OnClickLink';
-import { useModal } from 'src/providers/ModalProvider';
+import { useModal } from 'src/providers/ModalProvider/ModalProvider';
 import {
   CardType,
   CARD_PREVIEW_HEIGHT,

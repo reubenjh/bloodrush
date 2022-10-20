@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import { Header } from 'src/components/layouts/Header';
-import { Modal } from './Modal';
+import { Modal } from 'src/providers/ModalProvider';
 
 // import { Footer } from './Footer';
 // import { Loader } from './Loader';
