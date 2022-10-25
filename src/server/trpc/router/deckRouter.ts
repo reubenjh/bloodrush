@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { DeckType } from 'src/types/deck';
 import { authedProcedure, t } from '../trpc';
 
 export const deckRouter = t.router({
@@ -12,7 +13,6 @@ export const deckRouter = t.router({
       }),
     )
     .mutation(({ ctx, input }) => {
-      console.log(input);
       return ctx.prisma.deck.create({
         data: {
           ...input,
@@ -46,7 +46,7 @@ export const deckRouter = t.router({
         user: true,
       },
       take: 12,
-    });
+    }) as Promise<DeckType[]>;
   }),
   getMyLatest: authedProcedure.query(({ ctx }) => {
     return ctx.prisma.deck.findMany({
@@ -76,6 +76,6 @@ export const deckRouter = t.router({
         user: true,
       },
       take: 3,
-    });
+    }) as Promise<DeckType[]>;
   }),
 });
