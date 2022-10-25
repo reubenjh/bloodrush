@@ -5,5 +5,5 @@ export const P = ({
   children: any;
   className?: string;
 }) => {
-  return <p className={`t.mb-4 ${className}`}>{children}</p>;
+  return <p className={`mb-4 ${className}`}>{children}</p>;
 };

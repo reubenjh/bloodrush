@@ -46,15 +46,15 @@ const Signin: NextPage = () => {
 
   return (
     <Page>
-      <div className="t.flex t.flex-row t.justify-center">
-        <div className="t.hidden md:t.block t.w-1/2 t.h-1/2 t.max-w-xl t.mr-6">
+      <div className="flex flex-row justify-center">
+        <div className="hidden md:block w-1/2 h-1/2 max-w-xl mr-6">
           <Image src={bg} width={750} height={457} alt="" placeholder="blur" />
         </div>
-        <div className="t.w-[24rem] t.ml-8 t.flex t.flex-col">
-          <H2 className="t.mb-5">Sign in</H2>
+        <div className="w-[24rem] ml-8 flex flex-col">
+          <H2 className="mb-5">Sign in</H2>
           {emailProvider && (
             <>
-              <div className="t.mb-2">
+              <div className="mb-2">
                 <Input
                   type="email"
                   placeholder="Email address..."
@@ -63,16 +63,16 @@ const Signin: NextPage = () => {
                 />
               </div>
 
-              <Button className="t.max-w-[160px]" onClick={onEmailSignIn}>
+              <Button className="max-w-[160px]" onClick={onEmailSignIn}>
                 Send magic link
               </Button>
-              <Line className="t.my-4" />
-              <P className="t.text-sm">
+              <Line className="my-4" />
+              <P className="text-sm">
                 If you're creating a new account, we'll detect that and take you
                 to a setup page after you verify your email.
               </P>
 
-              {/* <LineWithText className="t.my-4" text="or" /> */}
+              {/* <LineWithText className="my-4" text="or" /> */}
             </>
           )}
 
@@ -81,7 +81,7 @@ const Signin: NextPage = () => {
               {Object.values(oAuthProviders).map((provider) => (
                 <Button
                   key={provider.name}
-                  className="t.w-full t.mb-2"
+                  className="w-full mb-2"
                   onClick={() =>
                     signIn(provider.id, {
                       callbackUrl: callbackUrl as string,
@@ -95,7 +95,7 @@ const Signin: NextPage = () => {
           )} */}
 
           {error && (
-            <div className="alert alert-danger t.my-2 t.max-w-sm" role="alert">
+            <div className="alert alert-danger my-2 max-w-sm" role="alert">
               <SigninError
                 error={error as string}
                 hasTrpcError={hasTrpcError}

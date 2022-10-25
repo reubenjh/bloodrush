@@ -1,7 +1,7 @@
 ul {
-  @apply t.list-inside t.list-disc t.space-y-[0.5];
+  @apply list-inside list-disc space-y-[0.5];
 }
 
 ol {
-  @apply t.list-inside t.list-decimal t.space-y-[0.5];
+  @apply list-inside list-decimal space-y-[0.5];
 }

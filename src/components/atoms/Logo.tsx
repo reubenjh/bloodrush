@@ -13,11 +13,11 @@ export const Logo = ({ className = '' }: { className?: string }) => {
 
   return (
     <div
-    // className={` t.border-b t.mt-[2px]
+    // className={` border-b mt-[2px]
     // ${
     //   pathname === homePath
-    //     ? 't.text-white'
-    //     : 't.text-black dark:t.text-white'
+    //     ? 'text-white'
+    //     : 'text-black dark:text-white'
     // } ${className}`}
     >
       <Image
@@ -28,8 +28,8 @@ export const Logo = ({ className = '' }: { className?: string }) => {
         placeholder="blur"
       />
 
-      {/* <span className="t.font-logo t.font-bold">🩸</span>
-      <span className="t.pr-3 t.relative t.top-[1px]">Bloodrush</span> */}
+      {/* <span className="font-logo font-bold">🩸</span>
+      <span className="pr-3 relative top-[1px]">Bloodrush</span> */}
     </div>
   );
 };

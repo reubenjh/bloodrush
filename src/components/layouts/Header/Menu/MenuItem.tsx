@@ -24,17 +24,14 @@ export const MenuItem = ({
 
   return (
     <LinkComponent
-      className={`t.block t.px-4 t.py-1.5 !t.text-text-color hover:!t.text-primary ${
-        pathname === path && 't.font-bold'
+      className={`block px-4 py-1.5 !text-text-color hover:!text-primary ${
+        pathname === path && 'font-bold'
       }`}
       href={path as any}
       onClick={onClick}
     >
       {IconComponent && (
-        <IconComponent
-          size={20}
-          className="t.mb-[2px] t.mr-[2px] t.inline-block"
-        />
+        <IconComponent size={20} className="mb-[2px] mr-[2px] inline-block" />
       )}
       {label}
     </LinkComponent>

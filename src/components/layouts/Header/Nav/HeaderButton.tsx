@@ -16,14 +16,14 @@ export const HeaderButton = ({
   return (
     <button
       className={`
-        t.rounded-md t.transition-all t.px-3 t.py-2 t.min-w-[100px] t.border-[1.5px] 
-       t.border-black
-        disabled:t.opacity-40 
+        rounded-md transition-all px-3 py-2 min-w-[100px] border-[1.5px] 
+       border-black
+        disabled:opacity-40 
         ${
           // if on home route, force dark styles, otherwise only in darkmode
           pathname === homePath
-            ? '!t.border-white t.text-dark-text-color'
-            : 'dark:!t.border-white '
+            ? '!border-white text-dark-text-color'
+            : 'dark:!border-white '
         }
         ${className}`}
       onClick={onClick}

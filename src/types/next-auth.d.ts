@@ -7,6 +7,7 @@ declare module 'next-auth' {
   interface Session {
     user?: {
       id: string;
+      notificationkey: string;
     } & DefaultSession['user'];
   }
 }

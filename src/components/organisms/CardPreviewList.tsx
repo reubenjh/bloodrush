@@ -1,6 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { CardType } from 'src/types/card';
-import { CardPreview } from './CardPreview';
+import { CardPreview } from '../molecules/CardPreview';
 
 type Props = {
   cards: CardType[];
@@ -9,13 +9,10 @@ type Props = {
 export const CardPreviewList = ({ cards }: Props) => {
   const [parent] = useAutoAnimate({ duration: 150 });
   return (
-    <div
-      className="t.flex t.flex-row t.flex-wrap t.justify-center"
-      ref={parent as any}
-    >
+    <div className="flex flex-row flex-wrap justify-center" ref={parent as any}>
       {cards.map((card, i) => {
         return (
-          <div key={i} className="t.m-1">
+          <div key={i} className="m-1">
             <CardPreview card={card} />
           </div>
         );

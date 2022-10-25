@@ -1,11 +1,8 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { BiPlus } from 'react-icons/bi';
-// import { useAuth } from 'src/providers/AuthProvider';
-// import { ModalType, useModal } from 'src/providers/ModalProvider';
-// import { useUser } from 'src/providers/UserProvider';
+import { ModalType, useModal } from 'src/providers/ModalProvider/ModalProvider';
 import { userPath } from 'src/utils/paths';
 import { MenuToggle } from '../Menu';
 import { Darkmode } from './Darkmode';
@@ -14,25 +11,24 @@ import { HeaderItem } from './HeaderItem';
 import { Notifications } from './Notifications';
 
 export const NavRight = () => {
-  const router = useRouter();
   const { data: sessionData } = useSession();
 
-  // const { openModal } = useModal();
+  const { openModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const ref = useDetectClickOutside({
     onTriggered: () => isMenuOpen && setIsMenuOpen(false),
   });
 
   return (
-    <div className="t.flex t.flex-row t.items-center">
+    <div className="flex flex-row items-center">
       <Darkmode />
       <Notifications />
-      <span className="t.visible lg:t.invisible lg:t.hidden" ref={ref}>
+      <span className="visible lg:invisible lg:hidden" ref={ref}>
         <MenuToggle isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </span>
 
       {!!sessionData?.user ? (
-        <div className="t.hidden lg:t.flex lg:t.visible">
+        <div className="hidden lg:flex lg:visible">
           <HeaderItem
             path={userPath(sessionData.user.id)}
             label={
@@ -42,20 +38,20 @@ export const NavRight = () => {
           <HeaderItem label="Logout" onClick={signOut} />
         </div>
       ) : (
-        <div className="t.hidden lg:t.flex lg:t.visible">
+        <div className="hidden lg:flex lg:visible">
           <HeaderItem label="Login" onClick={signIn} />
         </div>
       )}
 
-      {/* <HeaderButton
-        className="t.ml-4 t.pr-4 t.hidden lg:t.flex lg:t.visible"
+      <HeaderButton
+        className="ml-4 pr-4 hidden lg:flex lg:visible"
         onClick={() => {
-          !!user ? openModal(ModalType.CREATEDECK) : router.push(signinPath);
+          !!sessionData?.user ? openModal(ModalType.CREATEDECK) : signIn();
         }}
       >
-        <BiPlus size={20} className="t.mr-1.5 t.mt-[1px] t.inline-block" />
+        <BiPlus size={20} className="mr-1.5 mt-[1px] inline-block" />
         New Deck
-      </HeaderButton> */}
+      </HeaderButton>
     </div>
   );
 };

@@ -17,7 +17,7 @@ export const Darkmode = () => {
       message={isDark ? 'Light Mode' : 'Dark Mode'}
       onClick={handleChange}
     >
-      <span className="t.px-1">
+      <span className="px-1">
         {isDark ? (
           <BsSun
             size={15}

@@ -23,21 +23,19 @@ export const HeaderItem = ({
   return (
     <LinkComponent href={path as any} onClick={onClick}>
       <span
-        className={`t.cursor-pointer t.px-2 t.transition t.duration-150 t.ease-in-out 
-        t.text-nav-color hover:t.text-[rgba(0,0,0,0.7)]
+        className={`cursor-pointer px-2 transition duration-150 ease-in-out 
+        text-nav-color hover:text-[rgba(0,0,0,0.7)]
         ${
           // if on home route, force dark styles, otherwise only in darkmode
           pathname === homePath
-            ? 't.text-dark-nav-color hover:t.text-[hsla(0,0%,100%,.8)]'
-            : 'dark:t.text-dark-nav-color dark:hover:t.text-[hsla(0,0%,100%,.8)]'
+            ? 'text-dark-nav-color hover:text-[hsla(0,0%,100%,.8)]'
+            : 'dark:text-dark-nav-color dark:hover:text-[hsla(0,0%,100%,.8)]'
         }
         ${
           // active route
           pathname === path &&
-          `t.font-bold ${
-            path === homePath
-              ? '!t.text-white'
-              : '!t.text-black dark:!t.text-white'
+          `font-bold ${
+            path === homePath ? '!text-white' : '!text-black dark:!text-white'
           }`
         }`}
       >
