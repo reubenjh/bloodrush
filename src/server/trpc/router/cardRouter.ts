@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { CardTypeEnum } from 'src/types/card';
 import { t } from '../trpc';
 
 export const cardRouter = t.router({
@@ -8,14 +9,23 @@ export const cardRouter = t.router({
         search: z.string().nullish(),
       }),
     )
-    .query(async ({ ctx, input }) => {
+    .query(({ ctx, input }) => {
       return !!input.search
-        ? await ctx.prisma.card.findMany({
+        ? ctx.prisma.card.findMany({
             where: { name: { contains: input.search } },
             include: { variants: true },
           })
-        : await ctx.prisma.card.findMany({
+        : ctx.prisma.card.findMany({
             include: { variants: true },
           });
     }),
+  heroes: t.procedure.query(({ ctx }) => {
+    return ctx.prisma.card.findMany({
+      where: { card_type: CardTypeEnum.HERO },
+      select: {
+        key: true,
+        name: true,
+      },
+    });
+  }),
 });

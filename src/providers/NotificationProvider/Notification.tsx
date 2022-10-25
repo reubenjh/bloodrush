@@ -14,16 +14,16 @@ export const Notification = ({
   const buildNotificationTypeClasses = () => {
     switch (type) {
       case 'info':
-        return 't.bg-secondary t.text-white';
+        return 'bg-secondary text-white';
       case 'error':
-        return 't.bg-red t.text-white';
+        return 'bg-red text-white';
     }
   };
 
   return (
     <div className={className}>
       <div
-        className={`t.flex t.items-center t.justify-center t.px-4 t.py-2 t.w-full t.text-sm t.font-medium t.rounded-md t.transition-all t.shadow-[0_0_14px_rgba(0,0,0,0.2)] ${buildNotificationTypeClasses()}`}
+        className={`flex items-center justify-center px-4 py-2 w-full text-sm font-medium rounded-md transition-all shadow-[0_0_14px_rgba(0,0,0,0.2)] ${buildNotificationTypeClasses()}`}
       >
         {children}
       </div>

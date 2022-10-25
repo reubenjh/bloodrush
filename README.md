@@ -1,5 +1,10 @@
 # Bloodrush
 
+What is primsa? https://www.youtube.com/watch?v=rLRIB6AF2Dg
+
+Use...
+npx prisma studio
+
 ## Setup
 
 Install planescale & mysql

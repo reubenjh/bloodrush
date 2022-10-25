@@ -26,8 +26,8 @@ export const Notifications = () => {
     <KnockFeedProvider
       colorMode={isDark ? 'dark' : 'light'}
       apiKey={env.NEXT_PUBLIC_KNOCK_PUBLIC_KEY}
-      userToken={'todo user.token'}
-      feedId={'todo'}
+      userToken={sessionData.user.notificationkey}
+      feedId={'94360714-b0ae-4073-ba9a-5e953ccc914f'}
       userId={sessionData.user.id.toString()}
     >
       <span ref={notifButtonRef}>

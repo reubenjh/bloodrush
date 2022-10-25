@@ -1,6 +1,6 @@
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { CardType } from 'src/types/card';
-import { CardPreview } from './CardPreview';
+import { CardPreview } from '../molecules/CardPreview';
 
 type Props = {
   cards: CardType[];

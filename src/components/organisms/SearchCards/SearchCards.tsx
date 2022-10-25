@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import { CardPreviewList } from 'src/components/molecules/CardPreviewList';
+import { CardPreviewList } from 'src/components/organisms/CardPreviewList';
 import { CardType } from 'src/types/card';
 import { trpc } from 'src/utils/trpc';
 import { Input } from '../../atoms/Input';

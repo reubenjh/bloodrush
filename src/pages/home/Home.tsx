@@ -5,6 +5,7 @@ import { H1 } from 'src/components/atoms/Typography/H1';
 import { H3 } from 'src/components/atoms/Typography/H3';
 import { Page } from 'src/components/layouts/Page';
 import { SplashImage } from 'src/pages/home/SplashImage';
+import { PreviewGrids } from './PreviewGrids';
 
 const text = ['Bloodrush.', 'Brew decks.', 'Crush your friends.'];
 
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
     <>
       <SplashImage />
       <Page>
-        <div className="mt-[40vh] mb-28">
+        <div className="mt-[36vh] mb-28">
           <div className="text-center text-white mb-4">
             <H1 className="!mb-2">
               <TextTransition inline springConfig={presets.default}>
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
             <H3>A Flesh and Blood deckbuilder.</H3>
           </div>
         </div>
+        <PreviewGrids />
       </Page>
     </>
   );

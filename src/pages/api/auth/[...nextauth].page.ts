@@ -1,5 +1,6 @@
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import jwt from 'jsonwebtoken';
 import NextAuth, { type NextAuthOptions } from 'next-auth';
 // import DiscordProvider from 'next-auth/providers/discord';
 import EmailProvider from 'next-auth/providers/email';
@@ -10,11 +11,23 @@ import { env } from '../../../env/server.mjs';
 import { prisma } from '../../../server/db/client';
 
 export const authOptions: NextAuthOptions = {
-  // Include user.id on session
   callbacks: {
     session({ session, user }) {
       if (session.user) {
+        // Include user.id on session
         session.user.id = user.id;
+        // Add knock notification key
+        (session.user as any).notificationkey = jwt.sign(
+          {
+            sub: user.id.toString(),
+            iat: Math.floor(Date.now() / 1000),
+            exp: Math.floor(Date.now() / 1000) + 6000 * 6000, // ~416 days lol
+          },
+          env.KNOCK_SIGNING_KEY,
+          {
+            algorithm: 'RS256',
+          },
+        );
       }
       return session;
     },

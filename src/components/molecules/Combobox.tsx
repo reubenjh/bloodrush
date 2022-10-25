@@ -16,9 +16,10 @@ type Props = {
   title: string;
   options: Option[];
   placeholder?: string;
+  onSelect: (key: string) => void;
 };
 
-export const Combobox = ({ title, options, placeholder }: Props) => {
+export const Combobox = ({ title, options, placeholder, onSelect }: Props) => {
   const [selected, setSelected] = useState<Option | null>();
   const [focus, setFocus] = useState<boolean>();
   const [query, setQuery] = useState('');
@@ -39,7 +40,10 @@ export const Combobox = ({ title, options, placeholder }: Props) => {
       onChange={(o) => {
         setFocus(false);
         setSelected(o);
-        if (o) setQuery(o.label);
+        if (o) {
+          setQuery(o.label);
+          onSelect(o.value);
+        }
       }}
     >
       {({ open }) => (
@@ -83,7 +87,7 @@ export const Combobox = ({ title, options, placeholder }: Props) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <CBUI.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-dark-background py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              <CBUI.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white dark:bg-dark-background py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                 {filteredOptions.length === 0 && query !== '' ? (
                   <div className="relative cursor-default select-none py-2 px-4">
                     Nothing found.

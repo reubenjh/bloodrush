@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import type { AppType } from 'next/app';
 import { ModalProvider } from 'src/providers/ModalProvider/ModalProvider';
+import { NotificationProvider } from 'src/providers/NotificationProvider';
 import { ThemeProvider } from 'src/providers/ThemeProvider';
 import '../styles/globals.css';
 import { trpc } from '../utils/trpc';
@@ -14,19 +15,22 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <NextThemeProvider
-      defaultTheme="system"
-      attribute="class"
-      themes={['dark', 'light']}
-    >
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <NextThemeProvider
+        defaultTheme="system"
+        attribute="class"
+        themes={['dark', 'light']}
+      >
+        {/* todo smoosh these two theme providers */}
         <ThemeProvider>
-          <ModalProvider>
-            <Component {...pageProps} />
-          </ModalProvider>
+          <NotificationProvider>
+            <ModalProvider>
+              <Component {...pageProps} />
+            </ModalProvider>
+          </NotificationProvider>
         </ThemeProvider>
-      </SessionProvider>
-    </NextThemeProvider>
+      </NextThemeProvider>
+    </SessionProvider>
   );
 };
 
