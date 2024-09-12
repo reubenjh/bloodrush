@@ -1,0 +1,147 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+    provider             = "mysql"
+    url                  = env("DATABASE_URL")
+    referentialIntegrity = "prisma"
+}
+
+// Next auth
+
+model Account {
+    id                String  @id @default(cuid())
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
+    expires_at        Int?
+    token_type        String?
+    scope             String?
+    id_token          String? @db.Text
+    session_state     String?
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([provider, providerAccountId])
+}
+
+model Session {
+    id           String   @id @default(cuid())
+    sessionToken String   @unique
+    expires      DateTime
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+    id            String    @id @default(cuid())
+    email         String    @unique
+    emailVerified DateTime?
+    name          String?   @unique
+    image         String?
+    createdAt     DateTime  @default(now())
+
+    accounts Account[]
+    sessions Session[]
+    decks    Deck[]
+}
+
+model VerificationToken {
+    identifier String
+    token      String   @unique
+    expires    DateTime
+
+    @@unique([identifier, token])
+}
+
+// Bloodrush domain specific models
+
+model Set {
+    key   String @id
+    name  String
+    cards Card[]
+}
+
+model Card {
+    key        String @id
+    name       String
+    rarity     String
+    artist     String
+    card_type  String // enum
+    supertypes String // array
+
+    keywords        String? // array
+    subtypes        String? // array
+    game_text       String?  @db.VarChar(1000)
+    flavor_text     String?  @db.VarChar(1000)
+    specializations String? // array
+    essences        String? // array
+    legendary       Boolean?
+
+    resources Int?
+    cost      Int?
+    intellect Int?
+    life      Int?
+    attack    Int?
+    defense   Int?
+
+    setKey String
+    set    Set    @relation(fields: [setKey], references: [key], onDelete: Cascade)
+
+    variants  Variant[]
+    deckCards DeckCard[]
+    heroes    Deck[]     @relation(name: "hero")
+    features  Deck[]     @relation(name: "feature")
+}
+
+model Variant {
+    key String @id
+    src String
+
+    cardKey String
+    card    Card   @relation(fields: [cardKey], references: [key], onDelete: Cascade)
+
+    deckCards DeckCard[]
+}
+
+model Deck {
+    id          String   @id @default(cuid())
+    name        String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @default(now())
+    format      String   @default("constructed") // enum
+    visibility  String   @default("public") // enum
+    description String?  @db.VarChar(2000) // todo enforce 2k char limit
+
+    userId     String
+    user       User   @relation(fields: [userId], references: [id])
+    heroKey    String
+    hero       Card   @relation("hero", fields: [heroKey], references: [key], onDelete: Cascade)
+    featureKey String
+    feature    Card   @relation("feature", fields: [featureKey], references: [key], onDelete: Cascade)
+
+    decklist DeckCard[]
+}
+
+model DeckCard {
+    id          String  @id @default(cuid())
+    finish      String  @default("standard")
+    quantity    Int     @default(1)
+    isSideboard Boolean @default(false)
+
+    cardKey    String
+    card       Card    @relation(fields: [cardKey], references: [key], onDelete: Cascade)
+    variantKey String
+    variant    Variant @relation(fields: [variantKey], references: [key], onDelete: Cascade)
+    deckId     String
+    deck       Deck    @relation(fields: [deckId], references: [id], onDelete: Cascade)
+}

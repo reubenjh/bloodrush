@@ -1,0 +1,3 @@
+[submodule "fab_tcg_data"]
+	path = fab_tcg_data
+	url = https://github.com/realmsapp/fab_tcg_data.git
